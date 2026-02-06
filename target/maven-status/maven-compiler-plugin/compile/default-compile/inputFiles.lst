@@ -1,0 +1,15 @@
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\connection\DataBaseConnection.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\connection\SqliteConnection.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\Invoice\PrintInvoice.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models\CodigoQr.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models\CuerpoDocumento.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models\Emisor.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models\Identificacion.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models\InvoiceData.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models\Receptor.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models\Resumen.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models\SelloHacienda.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\services\PrintInvoiceService.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\CompileReport.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\MainWindow.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\Recv.java

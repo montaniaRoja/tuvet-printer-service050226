@@ -1,0 +1,16 @@
+models\InvoiceData.class
+views\Recv.class
+models\CuerpoDocumento.class
+models\Resumen.class
+Invoice\PrintInvoice.class
+views\MainWindow$1.class
+models\SelloHacienda.class
+connection\DataBaseConnection.class
+views\MainWindow.class
+views\CompileReport.class
+connection\SqliteConnection.class
+models\CodigoQr.class
+models\Receptor.class
+models\Identificacion.class
+models\Emisor.class
+services\PrintInvoiceService.class

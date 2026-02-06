@@ -1,0 +1,233 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="factura_tuvet" language="java" pageWidth="227" pageHeight="842" columnWidth="219" leftMargin="4" rightMargin="3" topMargin="0" bottomMargin="0" uuid="054cf426-b835-49d4-91f2-11af6b2c71e6">
+	<parameter name="numeroControl" class="java.lang.String"/>
+	<parameter name="codigoGeneracion" class="java.lang.String"/>
+	<parameter name="sello" class="java.lang.String"/>
+	<parameter name="fecEmi" class="java.lang.String"/>
+	<parameter name="horEmi" class="java.lang.String"/>
+	<parameter name="nombre" class="java.lang.String"/>
+	<parameter name="numDocumento" class="java.lang.String"/>
+	<parameter name="direccion" class="java.lang.String"/>
+	<parameter name="telefono" class="java.lang.String"/>
+	<parameter name="correo" class="java.lang.String"/>
+	<parameter name="totalPagar" class="java.lang.Double"/>
+	<parameter name="totalDescu" class="java.lang.Double"/>
+	<parameter name="totalLetras" class="java.lang.String"/>
+	<parameter name="condicion" class="java.lang.String"/>
+	<parameter name="qrCodeUrl" class="java.lang.String"/>
+	<query language="sql"><![CDATA[]]></query>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="precioUni" class="java.lang.Double"/>
+	<field name="montoDescu" class="java.lang.Double"/>
+	<field name="ventaGravada" class="java.lang.Double"/>
+	<background splitType="Stretch"/>
+	<title height="399" splitType="Stretch">
+		<element kind="staticText" uuid="07ceef5a-bd22-47f7-8f33-a28c66e34d56" x="4" y="29" width="210" height="30" fontName="Courier New" fontSize="12.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Veterinarias Centroamericanas 
+S.A. de C.V.]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="2cc5cc05-1f11-4555-881a-a263721895bd" x="20" y="61" width="160" height="14" fontName="Courier New" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+			<text><![CDATA[NIT: 0614-060622-101-9]]></text>
+			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="b7855148-705d-47f9-b283-ef301cf80209" x="50" y="76" width="100" height="14" fontName="Courier New" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+			<text><![CDATA[NRC: 3157487]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="34bde1e2-94c2-453f-ab9a-fddadf958b88" x="3" y="92" width="193" height="14" fontName="Courier New" fontSize="9.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Actividad: Actividades Veterinarias]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="c5ef4360-694b-489f-93d8-1ead59e30af5" x="10" y="107" width="180" height="14" fontName="Courier New" fontSize="9.0" bold="true" hTextAlign="Left">
+			<text><![CDATA[Correo: facturacion@tuvetsv.com]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="d6bd0e31-5d97-4afa-ab9c-9f76c893ca03" x="20" y="123" width="180" height="14" fontName="Courier New" fontSize="12.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[FACTURA ELECTRONICA]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="9fd02cd8-f4ce-4904-bd58-db2d1560f537" x="9" y="139" width="95" height="13" fontName="Courier New" fontSize="10.0">
+			<text><![CDATA[No. Control:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="bf5e23f0-d528-41fe-b100-3fec75c5b995" x="7" y="153" width="210" height="16" fontName="Courier New" fontSize="10.0" blankWhenNull="false">
+			<expression><![CDATA[$P{numeroControl}]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="staticText" uuid="5a49737a-38f7-4d37-ba77-67518ebcd8f2" x="9" y="170" width="113" height="14" fontName="Courier New" fontSize="10.0">
+			<text><![CDATA[Codigo Generacion:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="0ba7da6c-c0fd-4d7f-af44-6f38a4450c27" x="9" y="184" width="208" height="16" fontName="Courier New" fontSize="10.0" textAdjust="StretchHeight">
+			<expression><![CDATA[$P{codigoGeneracion}]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="90145796-2724-41fb-acba-69a14917d83c" x="9" y="203" width="95" height="13" fontName="Courier New" fontSize="10.0">
+			<text><![CDATA[Sello Recibido:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="0306a44e-e6c1-40fd-99b3-3794b802a568" x="9" y="220" width="208" height="16" fontName="Courier New" fontSize="10.0" textAdjust="StretchHeight">
+			<expression><![CDATA[$P{sello}]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="staticText" uuid="f19e32e3-f671-4d7e-a2e2-1f08a6fac46d" x="9" y="240" width="40" height="16" fontName="Courier New" fontSize="10.0">
+			<text><![CDATA[Fecha:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="026df9e4-94a6-49e6-815f-f95b811947f1" x="57" y="240" width="78" height="16" fontName="Courier New" fontSize="10.0">
+			<expression><![CDATA[$P{fecEmi}]]></expression>
+		</element>
+		<element kind="textField" uuid="73502f0f-7b41-48c3-b58e-7d1a9fb92054" x="134" y="240" width="82" height="16" fontName="Courier New" fontSize="10.0">
+			<expression><![CDATA[$P{horEmi}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="staticText" uuid="1edd4316-3d8c-45dd-92ef-b23a1f9d4f92" x="6" y="264" width="198" height="16" fontName="Courier New" fontSize="12.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[DATOS DEL CLIENTE]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="d78c438f-5cb9-4c34-98fc-8f601edc547c" x="10" y="284" width="203" height="16" fontName="Courier New" fontSize="12.0">
+			<expression><![CDATA[$P{nombre}]]></expression>
+		</element>
+		<element kind="staticText" uuid="e42d11e2-87b5-48a9-9a36-bb31fb4fb47a" x="8" y="304" width="37" height="16" fontName="Courier New" fontSize="12.0">
+			<text><![CDATA[DUI:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="a58e56c3-2271-454c-b4d7-879425e5f072" x="50" y="304" width="167" height="16" fontName="Courier New" fontSize="12.0">
+			<expression><![CDATA[$P{numDocumento}]]></expression>
+		</element>
+		<element kind="staticText" uuid="320a2e20-fa05-4a62-9a98-b0fe08ddbaab" x="8" y="321" width="32" height="16" fontName="Courier New" fontSize="12.0">
+			<text><![CDATA[Dir:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="61c8e2aa-86ef-4891-a6a8-75fa449b6330" x="47" y="321" width="169" height="29" fontName="Courier New" fontSize="12.0">
+			<expression><![CDATA[$P{direccion}]]></expression>
+		</element>
+		<element kind="staticText" uuid="e3585987-546d-4c4c-bc2f-a2be08271ab7" x="8" y="353" width="50" height="16" fontName="Courier New" fontSize="12.0">
+			<text><![CDATA[Tel.]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="3239b157-917e-4170-840c-40e6375b5025" x="65" y="353" width="127" height="16" fontName="Courier New" fontSize="12.0">
+			<expression><![CDATA[$P{telefono}]]></expression>
+		</element>
+		<element kind="staticText" uuid="9d7b6034-c88b-4c35-84fa-f4cd309cb8bd" x="8" y="370" width="50" height="16" fontName="Courier New" fontSize="12.0">
+			<text><![CDATA[Correo:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="599dd653-ff75-43d4-9aad-00125a177fab" x="60" y="370" width="155" height="16" fontName="Courier New" fontSize="11.0">
+			<expression><![CDATA[$P{correo}]]></expression>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
+	</title>
+	<columnHeader height="50" splitType="Stretch">
+		<element kind="staticText" uuid="de3f36a0-be3e-43b9-b386-bddd38ff9e6f" x="4" y="2" width="110" height="16" fontName="Courier New" fontSize="11.0">
+			<text><![CDATA[Descripcion]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="6b6f9a0a-35b1-442c-b970-9020cfedd14b" x="141" y="2" width="60" height="16" fontName="Courier New" fontSize="11.0">
+			<text><![CDATA[Unidad]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="45c806e9-7911-4708-b5b0-99d19ec471c6" x="4" y="20" width="42" height="16" fontName="Courier New" fontSize="11.0">
+			<text><![CDATA[Cantidad]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="6a7c50ef-982d-4f1b-94d0-b34862db3aef" x="56" y="20" width="42" height="16" fontName="Courier New" fontSize="11.0">
+			<text><![CDATA[Precio]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="0042a1bd-5d4d-4239-995e-4b7cb832f909" x="101" y="20" width="42" height="16" fontName="Courier New" fontSize="11.0">
+			<text><![CDATA[Desc.]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="02a6efc7-201d-42e2-a4b2-c730402e47f2" x="153" y="20" width="54" height="16" fontName="Courier New" fontSize="11.0">
+			<text><![CDATA[Total]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="e1b88829-6c60-4aaf-833e-80ba7e40f116" x="4" y="36" width="200" height="14" hTextAlign="Center">
+			<text><![CDATA[------------------------------------------------------------]]></text>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<element kind="textField" uuid="e7ba7890-37aa-41ba-86ca-71b0b7e61796" x="1" y="8" width="165" height="30" fontName="Courier New" fontSize="12.0">
+				<expression><![CDATA[$F{descripcion}]]></expression>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="textField" uuid="c7c3541a-6336-49ee-b032-a4ee6f131e90" x="1" y="40" width="44" height="16" fontName="Courier New" fontSize="12.0" pattern="#,##0.##" hTextAlign="Right">
+				<expression><![CDATA[$F{cantidad}]]></expression>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="textField" uuid="dda64086-81ef-40a9-87bf-af63aa2de981" x="47" y="40" width="44" height="16" fontName="Courier New" fontSize="12.0" pattern="#,##0.00" hTextAlign="Right">
+				<expression><![CDATA[$F{precioUni}]]></expression>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="textField" uuid="46add9cf-cbf5-456e-a362-2a625044e4d5" x="93" y="40" width="44" height="16" fontName="Courier New" fontSize="12.0" pattern="#,##0.00" hTextAlign="Right">
+				<expression><![CDATA[$F{montoDescu}]]></expression>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="textField" uuid="9cc67339-e055-4ca1-a4c5-1d1b9b38f4eb" x="139" y="40" width="61" height="16" fontName="Courier New" fontSize="12.0" pattern="#,##0.00" hTextAlign="Right">
+				<expression><![CDATA[$F{ventaGravada}]]></expression>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</element>
+			<element kind="staticText" uuid="e6c44735-7c61-4593-897b-db82a580d3f9" x="168" y="8" width="40" height="30" fontName="Courier New" hTextAlign="Center">
+				<text><![CDATA[Unidad]]></text>
+			</element>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</detail>
+	<summary height="240" splitType="Stretch">
+		<element kind="staticText" uuid="5e961df7-7aaf-4002-b387-cd90b92d2506" x="3" y="23" width="62" height="16" fontName="Courier New" fontSize="12.0">
+			<text><![CDATA[Subtotal]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="2ac4b4cb-9df9-474f-8b42-0541f2b4a7b2" x="66" y="23" width="135" height="16" fontName="Courier New" fontSize="12.0" pattern="#,##0.00" hTextAlign="Right">
+			<expression><![CDATA[$P{totalPagar}]]></expression>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="staticText" uuid="8f21accc-b59c-4340-8f77-47c6665b2ec2" x="4" y="41" width="42" height="16" fontName="Courier New" fontSize="12.0">
+			<text><![CDATA[Desc.]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="872f049c-21c7-4931-a3c5-3df60e6b6e72" x="58" y="41" width="143" height="16" fontName="Courier New" fontSize="12.0" pattern="#,##0.00" hTextAlign="Right">
+			<expression><![CDATA[$P{totalDescu}]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="staticText" uuid="e951cd3a-f961-443b-9185-2ffd3025df58" x="3" y="58" width="47" height="16" fontName="Courier New" fontSize="12.0">
+			<text><![CDATA[Pagar:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="8bde4443-e8f5-4d68-b817-9bdb40c46c10" x="56" y="58" width="147" height="16" fontName="Courier New" fontSize="12.0" pattern="#,##0.00" hTextAlign="Right">
+			<expression><![CDATA[$P{totalPagar}]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="87af97cb-c53f-4586-87ee-f86d96ba7f41" x="2" y="76" width="207" height="30" fontName="Courier New" fontSize="11.0" hTextAlign="Center">
+			<expression><![CDATA[$P{totalLetras}]]></expression>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="f87379e2-ba23-47c0-b5cf-e32fb9d541d5" x="3" y="109" width="123" height="16" fontName="Courier New" fontSize="11.0">
+			<text><![CDATA[Condicion de Pago:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="05c7059a-7bed-49f1-ac46-856fa0eb1d11" x="128" y="109" width="79" height="16" fontName="Courier New" fontSize="11.0" hTextAlign="Right">
+			<expression><![CDATA[$P{condicion}]]></expression>
+		</element>
+		<element kind="component" uuid="f7664c14-4742-4557-ad60-b9bc35ca9729" x="30" y="130" width="123" height="92">
+			<component kind="barcode4j:QRCode">
+				<codeExpression><![CDATA[$P{qrCodeUrl}]]></codeExpression>
+			</component>
+		</element>
+		<element kind="staticText" uuid="bc2fcb6d-e68b-4999-b181-61ec8bce5db4" x="2" y="4" width="210" height="18" hTextAlign="Center">
+			<text><![CDATA[------------------------------------------------------------]]></text>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
+	</summary>
+</jasperReport>
