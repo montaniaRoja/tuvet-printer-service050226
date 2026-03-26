@@ -107,11 +107,6 @@ public class PrintInvoiceService {
      return JasperFillManager.fillReport(jasperReport, params, dataSource);
 
 
-      
-        
-
-
-        // 4. Llenar el reporte y retornarlo
        
     }
 }

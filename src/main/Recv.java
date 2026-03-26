@@ -16,7 +16,7 @@ public class Recv {
 	public static void main(String[] argv) throws Exception {		
 		
 		// Inicializar base de datos y UUID
-        SqliteConnection.initializeDatabase();
+       // SqliteConnection.initializeDatabase();
 
         // Obtener UUID único de esta máquina
         String uuid = SqliteConnection.getUUID();

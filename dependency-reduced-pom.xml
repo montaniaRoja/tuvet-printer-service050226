@@ -27,8 +27,9 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>views.Recv</mainClass>
+                  <mainClass>views.PrinterService</mainClass>
                 </transformer>
+                <transformer />
                 <transformer>
                   <resource>META-INF/services/net.sf.jasperreports.engine.component.ComponentManager</resource>
                 </transformer>

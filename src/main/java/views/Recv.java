@@ -16,73 +16,88 @@ import connection.SqliteConnection;
 
 public class Recv {
 
-	public static void main(String[] argv) throws Exception {		
-		
-		// Inicializar base de datos y UUID
-        SqliteConnection.initializeDatabase();
+    private static Connection connection;
+    private static Channel channel;
+    public static int copias=SqliteConnection.getCopias();
 
-        // Obtener UUID único de esta máquina
-        String uuid = SqliteConnection.getUUID();
-        if (uuid == null) {
-            System.err.println("No se pudo obtener el UUID. Saliendo...");
-            return;
-        }
+    public static void startConsumer(String uuid) throws Exception {
 
-        // Nombre de la cola única para esta máquina
-        String queueName = "facturas_queue_" + uuid;       
+        String queueName = "facturas_queue_" + uuid;
         System.out.println("Usando la cola: " + queueName);
-        
-       
 
-        // Configuración de conexión RabbitMQ
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("35.208.101.55");
         factory.setPort(5672);
         factory.setUsername("admin");
         factory.setPassword("ofloda01");
+       
 
-        try (Connection connection = factory.newConnection();
-             Channel channel = connection.createChannel()) {
+        connection = factory.newConnection();
+        channel = connection.createChannel();
 
-            // Declarar la cola (durable)
-            channel.queueDeclare(queueName, true, false, false, null);
-            System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
-           
-            // Callback para recibir mensajes
-            DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-                String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
-                System.out.println("Mensaje recibido: " + message);
+        channel.queueDeclare(queueName, true, false, false, null);
 
-                try {
-                    // Crear ObjectMapper
-                    ObjectMapper mapper = new ObjectMapper();
+        DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
+            System.out.println("Mensaje recibido: " + message);
 
-                    // Parsear el JSON
-                    JsonNode root = mapper.readTree(message);
+            try {
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode root = mapper.readTree(message);
 
-                    // Extraer el printerId
-                    String printerId = root.get("printerId").asText();
+                JsonNode branchNode = root.get("branchName");
 
-                    // Comparar con el uuid de la máquina
-                    if (printerId.equals(uuid)) {
-                        System.out.println("✅ PrinterId coincide, imprimiendo...");
-                        PrintInvoice.printInvoice(message); // se manda exactamente lo mismo que antes
-                    } else {
-                        System.out.println("❌ PrinterId NO coincide, mensaje ignorado.");
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                // ⚠️ Validar que exista
+                if (branchNode == null || branchNode.isNull()) {
+                    System.out.println("⚠️ Mensaje sin branchName, ignorado");
+                    return;
                 }
-            };            
 
-            // Consumir la cola
-            channel.basicConsume(queueName, true, deliverCallback, consumerTag -> { });            
-            // Abrir ventana principal
-            new MainWindow();
-            // Mantener el programa corriendo
-            Thread.currentThread().join();
+                String branchName = branchNode.asText();
+
+                System.out.println("Sucursal recibida: " + branchName);
+                System.out.println("Sucursal local: " + uuid);
+
+                if (branchName.equals(uuid)) {
+                    System.out.println("✅ imprimir");
+                   
+                    PrintInvoice.printInvoice(message);
+                    
+                } else {
+                    System.out.println("❌ No corresponde a esta sucursal");
+                }
+
+            } catch (Exception e) {
+                System.out.println("❌ Error procesando mensaje");
+                e.printStackTrace();
+            }
+        };
+        
+        
+
+        channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {});
+    }
+    public static void stopConsumer() {
+        try {
+            if (channel != null && channel.isOpen()) {
+                channel.close();
+            }
+            if (connection != null && connection.isOpen()) {
+                connection.close();
+            }
+            channel = null;
+            connection = null;
+
+            System.out.println("Consumer detenido.");            
+            // pequeña pausa para asegurar cierre real
+            Thread.sleep(300);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+    
 
-	}
+
+}
 

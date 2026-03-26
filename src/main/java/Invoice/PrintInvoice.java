@@ -10,6 +10,7 @@ import java.util.Map;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import connection.SqliteConnection;
 import models.CodigoQr;
 import models.CuerpoDocumento;
 import models.Emisor;
@@ -19,6 +20,7 @@ import models.Resumen;
 import models.SelloHacienda;
 import net.sf.jasperreports.engine.JasperPrint;
 import services.PrintInvoiceService;
+import services.PrintServiceManager;
 import net.sf.jasperreports.engine.JasperPrintManager;
 
 public class PrintInvoice {
@@ -35,6 +37,8 @@ public class PrintInvoice {
         Resumen resumen = new Resumen();
         CodigoQr codigoQr=new CodigoQr();
         List<CuerpoDocumento> cuerpoList = new ArrayList<>();
+        int copias = SqliteConnection.getCopias();
+        
 
         // 1. Parsear el wrapper
         JsonNode wrapper = mapper.readTree(jsonFactura);
@@ -139,7 +143,7 @@ public class PrintInvoice {
         
         //generar QR
         
-        codigoQr.setAmbiente("00");
+        codigoQr.setAmbiente("01");
         codigoQr.setCodGeneracion(identificacion.getCodigoGeneracion());
         codigoQr.setFechaEmi(identificacion.getFecEmi());
         codigoQr.setUrl("https://admin.factura.gob.sv/consultaPublica?");
@@ -153,12 +157,17 @@ public class PrintInvoice {
             cuerpoList
         );
         
-        if(JasperPrintManager.printReport(jasperPrint, false)) {
-        	System.out.println("Factura impresa exitosamente.");
+        
+        boolean ok = PrintServiceManager.print(jasperPrint);
+        if (ok) {
+            System.out.println("Factura impresa exitosamente.");
         } else {
-        	System.out.println("Error al imprimir.");
+            System.out.println("Error al imprimir.");
         }
-         
+        
+        
+        
+       
 
 /*
         // 10. Exportar a PDF

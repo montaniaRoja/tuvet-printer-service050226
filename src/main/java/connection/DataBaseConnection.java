@@ -12,7 +12,8 @@ public class DataBaseConnection {
     private final static String contrasenia = "sanofi2025";
 
     public static Connection connection() throws SQLException{
-        Connection dbConecction = DriverManager.getConnection(ruta, usuario, contrasenia);
+        
+    	Connection dbConecction = DriverManager.getConnection(ruta, usuario, contrasenia);
 
         return dbConecction;
 

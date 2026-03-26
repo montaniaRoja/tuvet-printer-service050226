@@ -10,6 +10,13 @@ C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models
 C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models\Resumen.java
 C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\models\SelloHacienda.java
 C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\services\PrintInvoiceService.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\services\PrintServiceManager.java
 C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\CompileReport.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\ConfigurarCopias.java
 C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\MainWindow.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\PrinterService.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\PrintTest.java
 C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\Recv.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\Seleccionar.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\SeleccionarImpresora.java
+C:\Users\adolf\eclipse-workspace\tuvet-printer-service-main\src\main\java\views\SeleccionarSucursal.java

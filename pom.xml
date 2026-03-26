@@ -37,6 +37,16 @@
 </dependency>
 
 
+
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>42.7.10</version>
+            </dependency>
+        
+
+
 <dependency>
     <groupId>com.google.zxing</groupId>
     <artifactId>core</artifactId>
@@ -114,7 +124,7 @@
         </configuration>
       </plugin>
 
-      <plugin>
+     <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-shade-plugin</artifactId>
     <version>3.5.1</version>
@@ -126,12 +136,17 @@
             </goals>
             <configuration>
                 <transformers>
+
                     <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                        <mainClass>views.Recv</mainClass>
+                        <mainClass>views.PrinterService</mainClass>
                     </transformer>
+
+                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+
                     <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
                         <resource>META-INF/services/net.sf.jasperreports.engine.component.ComponentManager</resource>
                     </transformer>
+
                 </transformers>
             </configuration>
         </execution>
